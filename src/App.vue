@@ -63,7 +63,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./assets/style/style.scss";
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700&display=swap");
 
 * {
@@ -79,7 +78,7 @@ export default {
   background-color: #f8f9ff;
 
   h2 {
-    color: $grey;
+    color: #565656;
     margin-bottom: 1.5rem;
   }
 

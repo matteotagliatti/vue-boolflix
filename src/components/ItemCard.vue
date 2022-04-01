@@ -58,11 +58,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/style/style.scss";
-
 .grid-item {
   position: relative;
-  border-radius: $base-radius;
+  border-radius: 2rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-image: url("@/assets/img/imgnotfound.png");
   background-size: cover;
@@ -77,14 +75,14 @@ export default {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
-    border-radius: $base-radius;
+    border-radius: 2rem;
   }
 
   img {
     height: 100%;
     width: 100%;
     object-fit: cover;
-    border-radius: $base-radius;
+    border-radius: 2rem;
   }
 
   .text {

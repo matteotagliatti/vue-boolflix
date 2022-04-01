@@ -25,8 +25,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/style/style.scss";
-
 div {
   display: flex;
   justify-content: space-between;
@@ -39,7 +37,7 @@ div {
 
     input {
       padding: 0.5rem;
-      border: 2px solid $grey;
+      border: 2px solid #565656;
       border-radius: 0.7rem;
       background-color: transparent;
       color: black;
@@ -55,7 +53,7 @@ div {
     color: black;
 
     span {
-      color: $red;
+      color: red;
     }
   }
 }
