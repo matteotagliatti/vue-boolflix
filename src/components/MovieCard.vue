@@ -7,8 +7,8 @@
     <ul>
       <li>{{ movieData.title }}</li>
       <li>{{ movieData.original_title }}</li>
-      <li><span :class="selectFlag()"></span></li>
-      <li>{{ selectVote() }}</li>
+      <li><span :class="selectFlag"></span></li>
+      <li>{{ selectVote }}</li>
     </ul>
   </div>
 </template>
@@ -17,7 +17,7 @@
 export default {
   name: "MovieCard",
   props: ["movieData"],
-  methods: {
+  computed: {
     selectFlag() {
       if (this.movieData.original_language === "it") {
         return "fi fi-it";
@@ -33,7 +33,8 @@ export default {
       if (vote > 2 && vote < 4) return "★★";
       if (vote > 4 && vote < 6) return "★★★";
       if (vote > 6 && vote < 8) return "★★★★";
-      if (vote > 8 && vote < 10) return "★★★★★";
+      if (vote > 8 && vote <= 10) return "★★★★★";
+      return "";
     },
   },
 };
