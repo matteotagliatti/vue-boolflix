@@ -18,7 +18,7 @@
         <span :class="selectFlag"></span>
         <span class="stars">{{ selectVote }}</span>
       </div>
-      <p class="overview">{{ itemData.overview }}</p>
+      <p class="overview">{{ reduceOverview }}</p>
     </div>
   </div>
 </template>
@@ -45,6 +45,13 @@ export default {
       if (vote > 6 && vote < 8) return "★★★★";
       if (vote > 8 && vote <= 10) return "★★★★★";
       return "";
+    },
+    reduceOverview() {
+      if (this.itemData.overview.length > 200) {
+        return this.itemData.overview.slice(0, 200) + "...";
+      } else {
+        return this.itemData.overview;
+      }
     },
   },
 };
