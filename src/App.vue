@@ -1,8 +1,12 @@
 <template>
   <div id="app">
     <HeaderDiv @search="searchMovies" />
-    <div v-if="apiData">
-      <MovieCard />
+    <div v-if="movies">
+      <MovieCard
+        v-for="(movie, index) in movies"
+        :movieData="movie"
+        :key="index"
+      />
     </div>
   </div>
 </template>
@@ -21,7 +25,7 @@ export default {
   data() {
     return {
       search: "",
-      apiData: null,
+      movies: null,
     };
   },
   methods: {
@@ -32,8 +36,8 @@ export default {
           `https://api.themoviedb.org/3/search/movie?api_key=${process.env.VUE_APP_APIKEY}&query=${this.search}`
         )
         .then((response) => {
-          this.apiData = response.data.results;
-          console.log(this.apiData);
+          this.movies = response.data.results;
+          console.log(this.movies);
         });
     },
   },
