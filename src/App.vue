@@ -2,13 +2,15 @@
   <div id="app">
     <HeaderDiv @search="searchMoviesOrSeries" />
     <div v-if="movies">
-      <h2>Movies</h2>
+      <h2 v-if="movies.length > 0">Movies</h2>
+      <h2 v-esle>No movies found</h2>
       <div class="grid">
         <ItemCard v-for="movie in movies" :key="movie.id" :itemData="movie" />
       </div>
     </div>
     <div v-if="tvseries">
-      <h2>Tv Series</h2>
+      <h2 v-if="movies.length > 0">Tv Series</h2>
+      <h2 v-else>No tv series found</h2>
       <div class="grid">
         <ItemCard
           v-for="(serie, index) in tvseries"
