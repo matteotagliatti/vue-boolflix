@@ -1,18 +1,22 @@
 <template>
   <div id="app">
     <HeaderDiv @search="searchMoviesOrSeries" />
-    <div class="grid" v-if="movies">
-      <div>
-        <h1>Movies</h1>
+    <div v-if="movies">
+      <h2>Movies</h2>
+      <div class="grid">
         <MovieCard
-          v-for="(movie, index) in movies"
+          class="grid-item"
+          v-for="movie in movies"
+          :key="movie.id"
           :movieData="movie"
-          :key="index"
         />
       </div>
-      <div>
-        <h1>TV Series</h1>
+    </div>
+    <div v-if="tvseries">
+      <h2>Tv Series</h2>
+      <div class="grid">
         <SerieCard
+          class="grid-item"
           v-for="(serie, index) in tvseries"
           :serieData="serie"
           :key="index"
@@ -67,14 +71,28 @@ export default {
 </script>
 
 <style lang="scss">
+@import "./assets/style/style.scss";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700&display=swap");
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  padding: 5rem;
+  font-family: "Inter", sans-serif;
+  padding: 3rem;
   color: black;
+  background-color: #f8f9ff;
+
+  h2 {
+    color: $grey;
+  }
 
   .grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2rem;
+
+    .grid-item {
+      display: flex;
+      flex-direction: column;
+    }
   }
 }
 </style>
