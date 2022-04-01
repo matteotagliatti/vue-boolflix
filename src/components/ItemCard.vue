@@ -50,4 +50,78 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import "../assets/style/style.scss";
+
+.grid-item {
+  position: relative;
+  border-radius: $base-radius;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-image: url("@/assets/img/imgnotfound.png");
+  background-size: cover;
+  background-position: center;
+  background-color: white;
+
+  .overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: $base-radius;
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: $base-radius;
+  }
+
+  .text {
+    display: none;
+    padding: 2rem;
+    position: absolute;
+    bottom: 0;
+    color: white;
+    gap: 1rem;
+
+    .title {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .og-title {
+      font-size: 0.8rem;
+
+      span {
+        font-weight: bold;
+      }
+    }
+
+    .icons {
+      display: flex;
+      gap: 1rem;
+
+      .stars {
+        color: gold;
+      }
+    }
+
+    .overview {
+      font-size: 0.7rem;
+    }
+  }
+}
+
+.grid-item:hover .overlay {
+  display: block;
+}
+
+.grid-item:hover .text {
+  display: flex;
+  flex-direction: column;
+}
+</style>

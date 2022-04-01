@@ -65,4 +65,29 @@ export default {
 <style lang="scss">
 @import "./assets/style/style.scss";
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#app {
+  font-family: "Inter", sans-serif;
+  padding: 3rem;
+  color: black;
+  background-color: #f8f9ff;
+
+  h2 {
+    color: $grey;
+    margin-bottom: 1.5rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+}
 </style>
