@@ -60,7 +60,6 @@ export default {
         )
         .then((response) => {
           this.tvseries = response.data.results;
-          console.log(this.tvseries);
         });
     },
   },

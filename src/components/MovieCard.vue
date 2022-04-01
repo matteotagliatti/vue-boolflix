@@ -1,5 +1,9 @@
 <template>
   <div>
+    <img
+      :src="`http://image.tmdb.org/t/p/w185${movieData.poster_path}`"
+      :alt="movieData.title"
+    />
     <ul>
       <li>{{ movieData.title }}</li>
       <li>{{ movieData.original_title }}</li>

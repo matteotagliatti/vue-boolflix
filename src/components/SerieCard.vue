@@ -1,5 +1,9 @@
 <template>
   <div>
+    <img
+      :src="`http://image.tmdb.org/t/p/w185${serieData.poster_path}`"
+      :alt="serieData.name"
+    />
     <ul>
       <li>{{ serieData.name }}</li>
       <li>{{ serieData.original_name }}</li>
