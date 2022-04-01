@@ -1,15 +1,23 @@
 <template>
-  <div>
+  <div class="grid-item">
+    <div class="overlay"></div>
     <img
       :src="`http://image.tmdb.org/t/p/w185${movieData.poster_path}`"
       :alt="movieData.title"
     />
-    <ul>
-      <li>{{ movieData.title }}</li>
-      <li>{{ movieData.original_title }}</li>
-      <li><span :class="selectFlag"></span></li>
-      <li>{{ selectVote }}</li>
-    </ul>
+    <div class="text">
+      <div>
+        <p class="title">{{ movieData.title }}</p>
+        <p class="og-title">
+          Original title: <span>{{ movieData.original_title }}</span>
+        </p>
+      </div>
+
+      <div class="icons">
+        <span :class="selectFlag"></span>
+        <span class="stars">{{ selectVote }}</span>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -40,4 +48,68 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.grid-item {
+  position: relative;
+
+  .overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 2rem;
+  }
+
+  img {
+    height: 15rem;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+
+  .text {
+    display: none;
+    padding: 2rem;
+    position: absolute;
+    bottom: 0;
+    color: white;
+    gap: 1rem;
+
+    .title {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .og-title {
+      font-size: 0.8rem;
+
+      span {
+        font-weight: bold;
+      }
+    }
+
+    .icons {
+      display: flex;
+      gap: 1rem;
+
+      .stars {
+        color: gold;
+      }
+    }
+  }
+}
+
+.grid-item:hover .overlay {
+  display: block;
+}
+
+.grid-item:hover .text {
+  display: flex;
+  flex-direction: column;
+}
+</style>

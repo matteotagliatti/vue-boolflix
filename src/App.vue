@@ -4,19 +4,13 @@
     <div v-if="movies">
       <h2>Movies</h2>
       <div class="grid">
-        <MovieCard
-          class="grid-item"
-          v-for="movie in movies"
-          :key="movie.id"
-          :movieData="movie"
-        />
+        <MovieCard v-for="movie in movies" :key="movie.id" :movieData="movie" />
       </div>
     </div>
     <div v-if="tvseries">
       <h2>Tv Series</h2>
       <div class="grid">
         <SerieCard
-          class="grid-item"
           v-for="(serie, index) in tvseries"
           :serieData="serie"
           :key="index"
@@ -74,6 +68,12 @@ export default {
 @import "./assets/style/style.scss";
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700&display=swap");
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 #app {
   font-family: "Inter", sans-serif;
   padding: 3rem;
@@ -82,17 +82,14 @@ export default {
 
   h2 {
     color: $grey;
+    margin-bottom: 1.5rem;
   }
 
   .grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 2rem;
-
-    .grid-item {
-      display: flex;
-      flex-direction: column;
-    }
+    margin-bottom: 4rem;
   }
 }
 </style>
