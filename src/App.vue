@@ -4,15 +4,15 @@
     <div v-if="movies">
       <h2>Movies</h2>
       <div class="grid">
-        <MovieCard v-for="movie in movies" :key="movie.id" :movieData="movie" />
+        <ItemCard v-for="movie in movies" :key="movie.id" :itemData="movie" />
       </div>
     </div>
     <div v-if="tvseries">
       <h2>Tv Series</h2>
       <div class="grid">
-        <SerieCard
+        <ItemCard
           v-for="(serie, index) in tvseries"
-          :serieData="serie"
+          :itemData="serie"
           :key="index"
         />
       </div>
@@ -23,15 +23,13 @@
 <script>
 import axios from "axios";
 import HeaderDiv from "./components/Header.vue";
-import MovieCard from "./components/MovieCard.vue";
-import SerieCard from "./components/SerieCard.vue";
+import ItemCard from "./components/ItemCard.vue";
 
 export default {
   name: "App",
   components: {
-    MovieCard,
+    ItemCard,
     HeaderDiv,
-    SerieCard,
   },
   data() {
     return {
