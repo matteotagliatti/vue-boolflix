@@ -1,1 +1,91 @@
 @import "partials/variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#app {
+  font-family: "Inter", sans-serif;
+  padding: 3rem;
+  color: black;
+  background-color: #f8f9ff;
+
+  h2 {
+    color: $grey;
+    margin-bottom: 1.5rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+}
+
+.grid-item {
+  position: relative;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: $base-radius;
+
+  .overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: $base-radius;
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: $base-radius;
+  }
+
+  .text {
+    display: none;
+    padding: 2rem;
+    position: absolute;
+    bottom: 0;
+    color: white;
+    gap: 1rem;
+
+    .title {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .og-title {
+      font-size: 0.8rem;
+
+      span {
+        font-weight: bold;
+      }
+    }
+
+    .icons {
+      display: flex;
+      gap: 1rem;
+
+      .stars {
+        color: gold;
+      }
+    }
+  }
+}
+
+.grid-item:hover .overlay {
+  display: block;
+}
+
+.grid-item:hover .text {
+  display: flex;
+  flex-direction: column;
+}

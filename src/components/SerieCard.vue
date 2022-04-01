@@ -1,15 +1,22 @@
 <template>
-  <div>
+  <div class="grid-item">
+    <div class="overlay"></div>
     <img
       :src="`http://image.tmdb.org/t/p/w185${serieData.poster_path}`"
-      :alt="serieData.name"
+      :alt="serieData.title"
     />
-    <ul>
-      <li>{{ serieData.name }}</li>
-      <li>{{ serieData.original_name }}</li>
-      <li><span :class="selectFlag"></span></li>
-      <li>{{ selectVote }}</li>
-    </ul>
+    <div class="text">
+      <div>
+        <p class="title">{{ serieData.name }}</p>
+        <p class="og-title">
+          Original title: <span>{{ serieData.original_name }}</span>
+        </p>
+      </div>
+      <div class="icons">
+        <span :class="selectFlag"></span>
+        <span class="stars">{{ selectVote }}</span>
+      </div>
+    </div>
   </div>
 </template>
 
