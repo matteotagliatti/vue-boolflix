@@ -74,6 +74,7 @@ export default {
 }
 
 #app {
+  min-height: 100vh;
   font-family: "Inter", sans-serif;
   padding: 3rem;
   color: black;
@@ -89,6 +90,16 @@ export default {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 2rem;
     margin-bottom: 4rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #app {
+    padding: 1rem;
+
+    .grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
   }
 }
 </style>
