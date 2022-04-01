@@ -8,7 +8,13 @@
     <div class="text">
       <div>
         <p class="title">{{ itemData.title || itemData.name }}</p>
-        <p class="og-title">
+        <p
+          class="og-title"
+          v-if="
+            itemData.original_title !== itemData.title ||
+            itemData.original_name !== itemData.name
+          "
+        >
           Original title:
           <span>{{ itemData.original_title || itemData.original_name }}</span>
         </p>
