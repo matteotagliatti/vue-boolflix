@@ -16,6 +16,7 @@
         <span :class="selectFlag"></span>
         <span class="stars">{{ selectVote }}</span>
       </div>
+      <p class="overview">{{ serieData.overview }}</p>
     </div>
   </div>
 </template>
