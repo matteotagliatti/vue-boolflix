@@ -12,11 +12,6 @@
 <script>
 export default {
   name: "MovieCard",
-  data() {
-    return {
-      flag: null,
-    };
-  },
   props: ["movieData"],
   methods: {
     selectFlag() {
