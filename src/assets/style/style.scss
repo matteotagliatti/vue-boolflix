@@ -27,9 +27,12 @@
 
 .grid-item {
   position: relative;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: $base-radius;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-image: url("@/assets/img/imgnotfound.png");
+  background-size: cover;
+  background-position: center;
+  background-color: white;
 
   .overlay {
     display: none;
