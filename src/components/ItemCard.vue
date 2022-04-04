@@ -75,8 +75,8 @@ export default {
       return "";
     },
     reduceOverview() {
-      if (this.itemData.overview.length > 200) {
-        return this.itemData.overview.slice(0, 200) + "...";
+      if (this.itemData.overview.length > 100) {
+        return this.itemData.overview.slice(0, 100) + "...";
       } else {
         return this.itemData.overview;
       }
