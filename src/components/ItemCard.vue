@@ -18,6 +18,9 @@
           Original title:
           <span>{{ itemData.original_title || itemData.original_name }}</span>
         </p>
+        <p class="cast">
+          Cast: <span>{{ cast.join(", ") }}</span>
+        </p>
       </div>
 
       <div class="icons">
@@ -30,9 +33,28 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "ItemCard",
   props: ["itemData"],
+  data() {
+    return {
+      cast: null,
+    };
+  },
+  mounted() {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/movie/${this.itemData.id}/credits?api_key=89741267bea42d14e8c1d3e6f8a35032`
+      )
+      .then((response) => {
+        this.cast = response.data.cast.slice(0, 5).map((cast) => {
+          return cast.name;
+        });
+        console.log(this.cast);
+      });
+  },
   computed: {
     selectFlag() {
       if (this.itemData.original_language === "it") {
@@ -104,7 +126,8 @@ export default {
       font-weight: bold;
     }
 
-    .og-title {
+    .og-title,
+    .cast {
       font-size: 0.8rem;
 
       span {
