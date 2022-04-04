@@ -1,15 +1,19 @@
 <template>
   <div id="app">
-    <HeaderDiv @search="searchMoviesOrSeries" @genre="filterGenre" />
+    <HeaderDiv @search="searchMoviesOrSeries" @genre="saveSelectedGenre" />
     <div v-if="movies">
-      <h2 v-if="movies.length > 0">Movies</h2>
+      <h2 v-if="movies.length > 1">Movies</h2>
       <h2 v-else>No movies found</h2>
       <div class="grid">
-        <ItemCard v-for="movie in movies" :key="movie.id" :itemData="movie" />
+        <ItemCard
+          v-for="movie in filterGenre"
+          :key="movie.id"
+          :itemData="movie"
+        />
       </div>
     </div>
     <div v-if="tvseries">
-      <h2 v-if="movies.length > 0">Tv Series</h2>
+      <h2 v-if="movies.length > 1">Tv Series</h2>
       <h2 v-else>No tv series found</h2>
       <div class="grid">
         <ItemCard
@@ -38,6 +42,7 @@ export default {
       search: "",
       movies: null,
       tvseries: null,
+      selectedGenre: "",
     };
   },
   methods: {
@@ -60,8 +65,20 @@ export default {
           this.tvseries = response.data.results;
         });
     },
-    filterGenre(genre) {
-      console.log(genre);
+    saveSelectedGenre(genre) {
+      this.selectedGenre = genre;
+    },
+  },
+  computed: {
+    filterGenre() {
+      if (this.selectedGenre == "") {
+        return this.movies;
+      } else {
+        return this.movies.filter((item) => {
+          if (item.genre_ids.includes(parseInt(this.selectedGenre)))
+            return true;
+        });
+      }
     },
   },
 };

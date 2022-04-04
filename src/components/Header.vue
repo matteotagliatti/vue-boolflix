@@ -4,8 +4,8 @@
     <form @submit.prevent="$emit('search', searchValue)">
       <select @input="$emit('genre', $event.target.value)">
         <option selected value>All the genres</option>
-        <option v-for="(genre, index) in genres" :value="genre" :key="index">
-          {{ genre }}
+        <option v-for="(genre, index) in genres" :value="genre.id" :key="index">
+          {{ genre.name }}
         </option>
       </select>
 
@@ -39,7 +39,10 @@ export default {
       )
       .then((response) => {
         this.genres = response.data.genres.map((genre) => {
-          return genre.name;
+          return {
+            id: genre.id,
+            name: genre.name,
+          };
         });
       });
   },
