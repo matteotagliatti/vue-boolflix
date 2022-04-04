@@ -2,6 +2,13 @@
   <div>
     <h1>Boolflix<span>.</span></h1>
     <form @submit.prevent="$emit('search', searchValue)">
+      <select @input="$emit('genre', $event.target.value)">
+        <option selected value>All the genres</option>
+        <option v-for="(genre, index) in genres" :value="genre" :key="index">
+          {{ genre }}
+        </option>
+      </select>
+
       <input
         type="text"
         placeholder="Search for a movie or show"
@@ -14,12 +21,27 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "HeaderDiv",
   data() {
     return {
       searchValue: "",
+      genres: null,
     };
+  },
+  mounted() {
+    // Get Genres
+    axios
+      .get(
+        `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.VUE_APP_APIKEY}`
+      )
+      .then((response) => {
+        this.genres = response.data.genres.map((genre) => {
+          return genre.name;
+        });
+      });
   },
 };
 </script>
@@ -35,7 +57,8 @@ div {
     display: flex;
     gap: 0.3rem;
 
-    input {
+    input,
+    select {
       padding: 0.5rem;
       border: 2px solid #565656;
       border-radius: 0.7rem;
@@ -46,6 +69,11 @@ div {
 
     input[type="submit"] {
       font-weight: 700;
+    }
+
+    select {
+      font-size: 0.8rem;
+      margin-right: 1rem;
     }
   }
 

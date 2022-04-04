@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <HeaderDiv @search="searchMoviesOrSeries" />
+    <HeaderDiv @search="searchMoviesOrSeries" @genre="filterGenre" />
     <div v-if="movies">
       <h2 v-if="movies.length > 0">Movies</h2>
       <h2 v-else>No movies found</h2>
@@ -59,6 +59,9 @@ export default {
         .then((response) => {
           this.tvseries = response.data.results;
         });
+    },
+    filterGenre(genre) {
+      console.log(genre);
     },
   },
 };
