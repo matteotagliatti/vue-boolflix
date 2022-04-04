@@ -46,7 +46,7 @@ export default {
   mounted() {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/${this.itemData.id}/credits?api_key=89741267bea42d14e8c1d3e6f8a35032`
+        `https://api.themoviedb.org/3/movie/${this.itemData.id}/credits?api_key=${process.env.VUE_APP_APIKEY}`
       )
       .then((response) => {
         this.cast = response.data.cast.slice(0, 5).map((cast) => {
