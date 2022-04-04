@@ -6,7 +6,7 @@
       <h2 v-else>No movies found</h2>
       <div class="grid">
         <ItemCard
-          v-for="movie in filterGenre"
+          v-for="movie in movieFilter"
           :key="movie.id"
           :itemData="movie"
         />
@@ -17,7 +17,7 @@
       <h2 v-else>No tv series found</h2>
       <div class="grid">
         <ItemCard
-          v-for="(serie, index) in tvseries"
+          v-for="(serie, index) in tvFilter"
           :itemData="serie"
           :key="index"
         />
@@ -70,11 +70,21 @@ export default {
     },
   },
   computed: {
-    filterGenre() {
+    movieFilter() {
       if (this.selectedGenre == "") {
         return this.movies;
       } else {
         return this.movies.filter((item) => {
+          if (item.genre_ids.includes(parseInt(this.selectedGenre)))
+            return true;
+        });
+      }
+    },
+    tvFilter() {
+      if (this.selectedGenre == "") {
+        return this.tvseries;
+      } else {
+        return this.tvseries.filter((item) => {
           if (item.genre_ids.includes(parseInt(this.selectedGenre)))
             return true;
         });
