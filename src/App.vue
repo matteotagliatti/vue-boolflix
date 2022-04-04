@@ -73,12 +73,17 @@ export default {
   box-sizing: border-box;
 }
 
+html {
+  background-color: #f8f9ff;
+}
+
 #app {
+  max-width: 1100px;
   min-height: 100vh;
+  margin: 0 auto;
   font-family: "Inter", sans-serif;
   padding: 3rem;
   color: black;
-  background-color: #f8f9ff;
 
   h2 {
     color: #565656;
