@@ -57,4 +57,10 @@ div {
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  div {
+    margin-bottom: 3rem;
+  }
+}
 </style>

@@ -79,6 +79,7 @@ html {
 
 #app {
   max-width: 1100px;
+  min-width: 460px;
   min-height: 100vh;
   margin: 0 auto;
   font-family: "Inter", sans-serif;
