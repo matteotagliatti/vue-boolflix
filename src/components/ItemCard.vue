@@ -18,8 +18,8 @@
           Original title:
           <span>{{ itemData.original_title || itemData.original_name }}</span>
         </p>
-        <p class="cast">
-          Cast: <span>{{ cast.join(", ") }}</span>
+        <p v-if="cast" class="cast">
+          Cast: <span>{{ cast }}</span>
         </p>
       </div>
 
@@ -52,7 +52,7 @@ export default {
         this.cast = response.data.cast.slice(0, 5).map((cast) => {
           return cast.name;
         });
-        console.log(this.cast);
+        this.cast = this.cast.join(", ");
       });
   },
   computed: {
