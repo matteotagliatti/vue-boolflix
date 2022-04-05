@@ -61,6 +61,12 @@ export default {
         return "fi fi-it";
       } else if (this.itemData.original_language === "en") {
         return "fi fi-us";
+      } else if (this.itemData.original_language === "es") {
+        return "fi fi-es";
+      } else if (this.itemData.original_language === "ja") {
+        return "fi fi-jp";
+      } else if (this.itemData.original_language === "fr") {
+        return "fi fi-fr";
       } else {
         return "fi fi-xx";
       }
