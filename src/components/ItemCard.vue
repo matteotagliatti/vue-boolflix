@@ -164,4 +164,12 @@ export default {
   display: flex;
   flex-direction: column;
 }
+
+@media screen and (max-width: 768px) {
+  .grid-item {
+    .text {
+      padding: 0.7rem;
+    }
+  }
+}
 </style>

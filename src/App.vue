@@ -132,6 +132,7 @@ html {
 @media screen and (max-width: 768px) {
   #app {
     padding: 1rem;
+    min-width: 0;
 
     .grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));

@@ -92,6 +92,16 @@ div {
 @media screen and (max-width: 768px) {
   div {
     margin-bottom: 3rem;
+    flex-direction: column;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    select {
+      width: 100%;
+    }
   }
 }
 </style>
